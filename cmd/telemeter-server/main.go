@@ -127,6 +127,7 @@ func main() {
 	cmd.Flags().StringVar(&opt.AuthorizeTokenFile, "authorize-token-file", opt.AuthorizeTokenFile, "The path to a file containing a bearer token to use with the authorization endpoint.")
 
 	cmd.Flags().BoolVarP(&opt.Verbose, "verbose", "v", opt.Verbose, "Show verbose output.")
+	cmd.Flags().Int64Var(&opt.LimitBytes, "limit-bytes", opt.LimitBytes, "The maxiumum acceptable size of a request made to the upload endpoint.")
 
 	if err := cmd.Execute(); err != nil {
 		os.Exit(1)
