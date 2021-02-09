@@ -286,6 +286,8 @@ func (o *Options) Run() error {
 	worker.ToClient = metricsclient.New(toClient, o.LimitBytes, o.Interval, "federate_to")
 	worker.FromClient = metricsclient.New(fromClient, o.LimitBytes, o.Interval, "federate_from")
 	worker.Interval = o.Interval
+	worker.Timeout = o.Interval
+	worker.MaxBytes = o.LimitBytes
 
 	log.Printf("Starting telemeter-client reading from %s and sending to %s (listen=%s)", o.From, o.To, o.Listen)
 
